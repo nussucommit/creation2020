@@ -27,7 +27,7 @@ class SubmissionsController < ApplicationController
     @submission.user_id = current_user.id
     respond_to do |format|
       if @submission.save
-        #SubmissionMailer.submit_upload(@submission).deliver_now
+        SubmissionMailer.submit_upload(@submission).deliver_now
         format.html { redirect_to all_submissions_path, notice: 'Submission was successfully created.' }
       else
         format.html { render :new }
