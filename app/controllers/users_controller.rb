@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all.where(:admin => false)
     @challenge_statements = ChallengeStatement.all
+    @submissions = Submission.all
     respond_to do |format|
       format.xlsx {
         response.headers[
