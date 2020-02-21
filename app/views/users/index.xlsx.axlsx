@@ -7,8 +7,10 @@ wb.add_worksheet(name: "Users") do |sheet|
   @users.each do |user|
       submitted_user = []
       user.joined_challenge_statement.each do |challenge_statement|
-        if @submissions.where(:challenge_statement_id => challenge_statement).exists?
-            submitted_user.push(challenge_statement)
+        if user.submissions.where(:challenge_statement_id => challenge_statement).exists?
+            if !submitted_user.include? challenge_statement
+                submitted_user.push(challenge_statement)
+            end
         end
       end
     sheet.add_row [user.name, user.nusnet, user.faculty, user.year, user.email, user.joined_challenge_statement, submitted_user]
