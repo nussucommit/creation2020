@@ -26,6 +26,10 @@
 </head>
 
 <style>
+  /*html,body{*/
+  /*  height: 100%;*/
+  /*}*/
+
 	.title {
 		padding-top: 3%;
 		text-align: center;
@@ -41,29 +45,32 @@
         padding-bottom: 3%;
 	}
 
-	.separator {
-	 	font-family: "Raleway";
-	 	text-align: center;
-	 	font-style: italic;
-	}
+	/*.separator {*/
+	/* 	font-family: "Raleway";*/
+	/* 	text-align: center;*/
+	/* 	font-style: italic;*/
+	/*}*/
 
-	.line {
-		width: 100%; 
-	    text-align: center; 
-	    border-bottom: 1px solid #000; 
-	    line-height: 0.1em;
-	    margin: 2% 0 2%; 
-	}
+	/*.line {*/
+	/*	width: 100%; */
+	/*    text-align: center; */
+	/*    border-bottom: 1px solid #000; */
+	/*    line-height: 0.1em;*/
+	/*    margin: 2% 0 2%; */
+	/*}*/
 
-	.line .separator {
-		background:#F6F7F2; 
-    	padding:0 30px;
-	}
+	/*.line .separator {*/
+	/*	background:#F6F7F2; */
+  /*  	padding:0 30px;*/
+	/*}*/
 
 	.page-foot {
         background-color: #F26648;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
         padding-top: 4px;
-        padding-bottom: 4px;
+        /*padding-bottom: 4px;*/
         text-align: center;
     }
 
@@ -74,7 +81,12 @@
         color: white;
         font-size: 5vmin;
     }
+
+    .push {
+      height: 154px;
+    }
 </style>
+
 
 <body>
 <h1 class="title">CONTACT US!</h1>
@@ -82,13 +94,12 @@
 
 <%= render 'messages/form', message: @message %>
 
-<div class="container">
-	<p class="line"><span class="separator">OR</span></p>
-</div>
+<!--<div class="container">-->
+<!--	<p class="line"><span class="separator">OR</span></p>-->
+<!--</div>-->
 
-<h1 class="title">SUBSCRIBE FOR MORE UPDATE!</h1>
-<%= render "mailing_lists/new", mailing_list: @mailing_list %>
-
-<div class="page-foot"><%= link_to "ANY QUESTIONS?", new_message_path, class: 'last-link' %></div>
+<!--<h1 class="title">SUBSCRIBE FOR MORE UPDATE!</h1>-->
+<%#= render "mailing_lists/new", mailing_list: @mailing_list %>
+<div class="page-foot "><%= link_to "ANY QUESTIONS?", new_message_path, class: 'last-link' %></div>
 </body>
 </html>

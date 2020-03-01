@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  resources :mailing_lists
+  #get 'users/index'
+  #resources :mailing_lists
 
-  resources :challenge_statements, except: :show do
-    post 'join', on: :member
-    post 'close', on: :member
-    resources :submissions, except: :destroy
-  end
-  match 'submit', to: 'challenge_statements#submit', as: 'all_submissions', :via => :get
+  resources :challenge_statements
+  #, except: :show do
+  #  post 'join', on: :member
+  #  post 'close', on: :member
+  #  resources :submissions, except: :destroy
+  #end
+  #match 'submit', to: 'challenge_statements#submit', as: 'all_submissions', :via => :get
 
   #static-pages
   get 'static_pages/home'
@@ -22,10 +23,10 @@ Rails.application.routes.draw do
   post 'contact-us', to: 'messages#create', as: 'create_message'
 
   #users
-  devise_for :users, controllers: { sessions: 'users/sessions' }
-  get '/user' => "challenge_statements#submit", :as => :user_root
-  match '/users',   to: 'users#index',   via: 'get'
-  post '/download-attachments', to: "users#process_and_create_zip_file", as: 'download_documents'
+  #devise_for :users, controllers: { sessions: 'users/sessions' }
+  #get '/user' => "challenge_statements#submit", :as => :user_root
+  #match '/users',   to: 'users#index',   via: 'get'
+  #post '/download-attachments', to: "users#process_and_create_zip_file", as: 'download_documents'
   #get 'users/:id/uploads' => 'users#uploads', :as => :user_uploads
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

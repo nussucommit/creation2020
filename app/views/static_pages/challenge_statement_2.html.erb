@@ -72,7 +72,7 @@
   .page-foot {
     background-color: #F26648;
     padding-top: 4px;
-    padding-bottom: 4px;
+    /*padding-bottom: 4px;*/
     text-align: center;
   }
 
@@ -137,42 +137,45 @@
     <i>Note that ONE Newcomer Award will be given to ONE eligible participant whose design is the judges’ favorite among ALL CHALLENGE STATEMENTS. Eligibility criteria for Newcomer Award can be found under <%= link_to "Rules and Regulations", static_pages_rules_path %>. 
     </i>
   </p>
-  <p class="notice">Please download the challenge brief PDF after joining the challenge!</p>
   <br/><br/>
+  <p class="notice">Thank you for your interest and active participation in Creation 2020! We look forward to see you next year in Creation 2021!</p>
 
-<div style="text-align: center;">
-  <% if current_user == nil || !@challenge_statement.id.in?(current_user.joined_challenge_statement) %>
-    <% if @challenge_statement.is_open %>
-      <%=  button_to "Join Challenge Statement", join_challenge_statement_path(@challenge_statement), class: "button" %>
-    <% else %>
-      <%= "Thank you for your interest in Creation 2020, currently we are no longer accepting submissions for this Challenge Statement!" %>
-    <% end %>
-  <%  end %>
+<!--<div style="text-align: center;">-->
+  <%# if current_user == nil || !@challenge_statement.id.in?(current_user.joined_challenge_statement) %>
+    <%# if @challenge_statement.is_open %>
+      <%#=  button_to "Join Challenge Statement", join_challenge_statement_path(@challenge_statement), class: "button" %>
+    <%# else %>
+      <%#= "Thank you for your interest in Creation 2020, currently we are no longer accepting submissions for this Challenge Statement!" %>
+    <%# end %>
+  <%#  end %>
 
-  <% if current_user != nil && @challenge_statement.id.in?(current_user.joined_challenge_statement) %>
-    <% if @challenge_statement.is_open %>
-      <%= link_to "Download brief", rails_blob_path(@challenge_statement.zip, disposition: 'attachment'), :class => "button" %>
-      <br/><br/>
-      <%= link_to "Make a submission", all_submissions_path, :class => "button" %>
-    <% else %>
-      <%= "Thank you for your interest in Creation 2020, currently we are no longer accepting submissions for this Challenge Statement!" %>
-    <% end %>
-  <% end %>
+  <%# if current_user != nil && @challenge_statement.id.in?(current_user.joined_challenge_statement) %>
+    <%# if @challenge_statement.is_open %>
+      <%#= link_to "Download brief", rails_blob_path(@challenge_statement.zip, disposition: 'attachment'), :class => "button" %>
+<!--      <br/><br/>-->
+      <%#= link_to "Make a submission", all_submissions_path, :class => "button" %>
+    <%# else %>
+      <%#= "Thank you for your interest in Creation 2020, currently we are no longer accepting submissions for this Challenge Statement!" %>
+    <%# end %>
+  <%# end %>
 
-  <% if user_signed_in? %>
-    <% if current_user.admin %>
-      <%= button_to 'Edit', edit_challenge_statement_path(@challenge_statement), :method => :get %>
-      <% if @challenge_statement.is_open %>
-        <%= button_to 'Close Challenge Statement', close_challenge_statement_path(@challenge_statement), data: { confirm: 'Are you sure?' }%>
-      <% else %>
-        <%= button_to 'Open Challenge Statement', close_challenge_statement_path(@challenge_statement),  data: { confirm: 'Are you sure?' }%>
-      <% end %>
-    <% end %>
-  <% end %>
+  <%# if user_signed_in? %>
+    <%# if current_user.admin %>
+      <%#= button_to 'Edit', edit_challenge_statement_path(@challenge_statement), :method => :get %>
+      <%# if @challenge_statement.is_open %>
+        <%#= button_to 'Close Challenge Statement', close_challenge_statement_path(@challenge_statement), data: { confirm: 'Are you sure?' }%>
+      <%# else %>
+        <%#= button_to 'Open Challenge Statement', close_challenge_statement_path(@challenge_statement),  data: { confirm: 'Are you sure?' }%>
+      <%# end %>
+    <%# end %>
+  <%# end %>
   <br/>
   <br/>
-  <%= link_to 'Back', challenge_statements_path %>
-</div>
+  <div class = "container">
+    <div class = "d-flex justify-content-center">
+      <%= button_to 'Back', challenge_statements_path,:method => :get, class:"button" %>
+    </div>
+  </div><!--</div>-->
 </div>
 </div>
 

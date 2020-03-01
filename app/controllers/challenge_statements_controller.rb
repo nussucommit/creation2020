@@ -1,6 +1,6 @@
 class ChallengeStatementsController < ApplicationController
   before_action :set_challenge_statement, only: [:show, :edit, :update, :destroy, :join, :close]
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   # GET /challenge_statements
   # GET /challenge_statements.json
@@ -8,16 +8,16 @@ class ChallengeStatementsController < ApplicationController
     @challenge_statements = ChallengeStatement.all
   end
 
-  def submit
-    @challenge_statements = ChallengeStatement.all
-    @challenge_statement = nil
-    @submissions = nil
-    if current_user.admin
-      @users = User.all.where(:admin => false)
-      #not_submitted_user refers to users that have joined and yet to submit
-      @not_submitted_user = nil
-    end
-  end
+  #def submit
+  #  @challenge_statements = ChallengeStatement.all
+  #  @challenge_statement = nil
+  #  @submissions = nil
+  #  if current_user.admin
+  #    @users = User.all.where(:admin => false)
+  #    #not_submitted_user refers to users that have joined and yet to submit
+  #    @not_submitted_user = nil
+  #  end
+  #end
 
   # GET /challenge_statements/1
   # GET /challenge_statements/1.jsons
