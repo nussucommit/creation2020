@@ -5,29 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create!(name: "Example Admin",
-                    nusnet: "E0000000",
-             faculty: "School Of Computing",
-             year: "Year 1",
-             admin: true,
-             email: "e0324758@u.nus.edu",
-             password: "password",
-             password_confirmation: "password")
 
-challenge = user.challenge_statements.create!(title: "Challenge Statement 1", partner_name: "NUSSU Welfare", description: "Description for CS1")
+challenge = challenge_statements.create!(title: "Challenge Statement 1", partner_name: "NUSSU Welfare", description: "Description for CS1")
 challenge.zip.attach(io: File.open('app/assets/seed/Challenge 1 Brief - 2020 NUSSU Welfare Diary.pdf'), filename: 'Challenge 1 Brief - 2020 NUSSU Welfare Diary.pdf')
-challenge = user.challenge_statements.create!(title: "Challenge Statement 2", partner_name: "NUS IT", description: "Description for CS2")
+challenge = challenge_statements.create!(title: "Challenge Statement 2", partner_name: "NUS IT", description: "Description for CS2")
 challenge.zip.attach(io: File.open('app/assets/seed/Challenge 2 Brief - Key Visual for NUS Commencement Class Giving 2021.pdf'), filename: 'Challenge 2 Brief - Key Visual for NUS Commencement Class Giving 2021.pdf')
-challenge = user.challenge_statements.create!(title: "Challenge Statement 3", partner_name: "NUS DVO", description: "Description for CS3")
+challenge = challenge_statements.create!(title: "Challenge Statement 3", partner_name: "NUS DVO", description: "Description for CS3")
 challenge.zip.attach(io: File.open('app/assets/seed/Challenge 3 Brief - Mascot for NUS IT Security Awareness Campaign.pdf'), filename: 'Challenge 3 Brief - Mascot for NUS IT Security Awareness Campaign.pdf')
 
-User.create!(name: "Example Student",
-             nusnet: "E0319186",
-             faculty: "School Of Business",
-             year: "Year 4",
-             email: "e0319186@u.nus.edu",
-             password: "password",
-             password_confirmation: "password")
 
 #(1..10).each do |n|
 #  name = Faker::Name.unique.name
